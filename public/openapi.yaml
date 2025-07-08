@@ -1,0 +1,102 @@
+openapi: 3.0.0
+
+info:
+  title: Test App API
+  description: An API for retrieving example URLs.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+# ----------------- THE NEW PART -----------------
+# We define all reusable pieces of our API here.
+components:
+  # This is a reusable definition for the GET operation.
+  operations:
+    get-example-url-by-id:
+      summary: Get a specific example URL
+      description: Retrieves a single URL resource by its ID.
+      tags:
+        - Example URLs
+      # Note: No 'parameters' here as they are tied to the path itself.
+      responses:
+        '200':
+          description: OK. The request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                  id:
+                    type: string
+        '404':
+          description: Not Found. The requested URL ID does not exist.
+# ----------------- END OF NEW PART -----------------
+
+# The available paths and operations for your API.
+paths:
+  # --- THE MODIFIED PART ---
+  # We now list each path explicitly.
+  /api/example-urls/url1:
+    get:
+      # We reference the reusable operation defined above.
+      $ref: '#/components/operations/get-example-url-by-id'
+  
+  /api/example-urls/url2:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+
+  /api/example-urls/url3:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+  /api/example-urls/url4:
+    get:
+      # We reference the reusable operation defined above.
+      $ref: '#/components/operations/get-example-url-by-id'
+  
+  /api/example-urls/url5:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+
+  /api/example-urls/url6:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+  /api/example-urls/url7:
+    get:
+      # We reference the reusable operation defined above.
+      $ref: '#/components/operations/get-example-url-by-id'
+  
+  /api/example-urls/url8:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+
+  /api/example-urls/url9:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+  /api/example-urls/url10:
+    get:
+      # We reference the reusable operation defined above.
+      $ref: '#/components/operations/get-example-url-by-id'
+  
+  /api/example-urls/url11:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+
+  /api/example-urls/url12:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+  /api/example-urls/url13:
+    get:
+      # We reference the reusable operation defined above.
+      $ref: '#/components/operations/get-example-url-by-id'
+  
+  /api/example-urls/url14:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
+
+  /api/example-urls/url15:
+    get:
+      $ref: '#/components/operations/get-example-url-by-id'
