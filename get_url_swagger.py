@@ -8,7 +8,7 @@ from jsonref import JsonRef
 
 # --- Path setup ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root_str = os.path.abspath(os.path.join(current_dir, "../../../../"))
+project_root_str = os.path.abspath(os.path.join(current_dir, "/"))
 if project_root_str not in sys.path:
     sys.path.append(project_root_str)
 
